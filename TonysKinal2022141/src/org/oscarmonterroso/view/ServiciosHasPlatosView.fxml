@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="504.0" prefWidth="998.0" style="-fx-background-color: #c9d2d9;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.oscarmonterroso.controller.ServiciosHasPlatosController">
+   <children>
+      <ImageView fitHeight="597.0" fitWidth="1027.0" layoutX="-18.0" layoutY="-101.0" opacity="0.52" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/marco.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="-2.0" layoutY="383.0" prefHeight="122.0" prefWidth="1004.0" style="-fx-background-color: #043c94;">
+         <children>
+            <Button fx:id="btnNuevo" alignment="BASELINE_RIGHT" layoutX="47.0" layoutY="20.0" mnemonicParsing="false" onAction="#nuevo" prefHeight="65.0" prefWidth="142.0" styleClass="button1" stylesheets="@../resource/TonysKinal.css" text="Nuevo">
+               <font>
+                  <Font name="Bookman Old Style Bold" size="12.0" />
+               </font></Button>
+            <ImageView fx:id="imgNuevo" fitHeight="56.0" fitWidth="61.0" layoutX="72.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/nuevo.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btnReporte" alignment="BASELINE_RIGHT" layoutX="650.0" layoutY="22.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="142.0" styleClass="button1" stylesheets="@../resource/TonysKinal.css" text="Reporte">
+               <font>
+                  <Font name="Bookman Old Style Bold" size="12.0" />
+               </font></Button>
+            <ImageView fx:id="imgReporte" fitHeight="50.0" fitWidth="56.0" layoutX="664.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/reporte.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btnEditar" alignment="BASELINE_RIGHT" layoutX="457.0" layoutY="22.0" mnemonicParsing="false" onAction="#editar" prefHeight="65.0" prefWidth="124.0" styleClass="button1" stylesheets="@../resource/TonysKinal.css" text="Editar">
+               <font>
+                  <Font name="Bookman Old Style Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <ImageView fx:id="imgEditar" fitHeight="56.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/editar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnEliminar" alignment="BASELINE_RIGHT" layoutX="271.0" layoutY="20.0" mnemonicParsing="false" onAction="#eliminar" prefHeight="65.0" prefWidth="124.0" styleClass="button1" stylesheets="@../resource/TonysKinal.css" text="Eliminar">
+               <font>
+                  <Font name="Bookman Old Style Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <ImageView fx:id="imgEliminar" fitHeight="56.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/eliminar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+      <ImageView disable="true" fitHeight="358.0" fitWidth="427.0" layoutX="158.0" layoutY="14.0" opacity="0.14" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/menu.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="tblServiciosHasPlatos" layoutX="14.0" layoutY="132.0" onMouseClicked="#seleccionarElemento" prefHeight="258.0" prefWidth="974.0">
+        <columns>
+          <TableColumn fx:id="colServiciosCodigoServicio" prefWidth="304.0" text="Servicios codigo Servicio" />
+          <TableColumn fx:id="colTipoServicio" minWidth="0.0" prefWidth="0.0" />
+            <TableColumn fx:id="colCodigoPlato" minWidth="0.0" prefWidth="359.0" text="Codigo Plato" />
+            <TableColumn fx:id="colCodigoServicio" minWidth="0.0" prefWidth="309.0" text="Codigo Servicio" />
+        </columns>
+      </TableView>
+      <Label contentDisplay="CENTER" layoutX="286.0" layoutY="13.0" prefHeight="43.0" prefWidth="319.0" text="Servicios has Platos" textOverrun="CENTER_WORD_ELLIPSIS">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="50.0" fitWidth="56.0" layoutX="934.0" layoutY="9.0" onMouseClicked="#menuPrincipal" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/Flecha3.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <GridPane fx:id="grpFecha" layoutX="45.0" layoutY="67.0" prefHeight="56.0" prefWidth="879.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="391.0" minWidth="10.0" prefWidth="226.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="551.0" minWidth="10.0" prefWidth="222.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="551.0" minWidth="10.0" prefWidth="222.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="551.0" minWidth="10.0" prefWidth="222.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="71.0" minHeight="10.0" prefHeight="37.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="44.0" minHeight="10.0" prefHeight="19.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <TextField fx:id="txtServiciosCodigoServicio" prefHeight="18.0" prefWidth="478.0" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets bottom="4.0" />
+               </GridPane.margin></TextField>
+            <Label text="Servicios codigo Servicio">
+               <font>
+                  <Font name="Bookman Old Style Italic" size="17.0" />
+               </font>
+            </Label>
+            <Label text="Codigo Servicio" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Bookman Old Style Italic" size="17.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="cmbCodigoServicio" prefHeight="25.0" prefWidth="217.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Label prefHeight="30.0" prefWidth="185.0" text="Codigo Plato" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Bookman Old Style Italic" size="17.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="cmbCodigoPlato" prefHeight="25.0" prefWidth="217.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>

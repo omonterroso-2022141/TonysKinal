@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="504.0" prefWidth="998.0" style="-fx-background-color: #c9d2d9;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="597.0" fitWidth="1027.0" layoutX="-18.0" layoutY="-101.0" opacity="0.52" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/marco.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="-2.0" layoutY="383.0" prefHeight="122.0" prefWidth="1004.0" style="-fx-background-color: #043c94;">
+         <children>
+            <Button fx:id="btnNuevo" alignment="BASELINE_RIGHT" layoutX="47.0" layoutY="20.0" mnemonicParsing="false" onAction="#nuevo" prefHeight="65.0" prefWidth="142.0" styleClass="button1" stylesheets="@../resource/TonysKinal.css" text="Nuevo">
+               <font>
+                  <Font name="Bookman Old Style Bold" size="12.0" />
+               </font></Button>
+            <ImageView fx:id="imgNuevo" fitHeight="56.0" fitWidth="61.0" layoutX="72.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/nuevo.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btnEditar" alignment="BASELINE_RIGHT" layoutX="449.0" layoutY="21.0" mnemonicParsing="false" onAction="#editar" prefHeight="65.0" prefWidth="153.0" styleClass="button1" stylesheets="@../resource/TonysKinal.css" text="Editar">
+               <font>
+                  <Font name="Bookman Old Style Bold" size="12.0" />
+               </font></Button>
+            <Button fx:id="btnEliminar" alignment="BASELINE_RIGHT" layoutX="248.0" layoutY="21.0" mnemonicParsing="false" onAction="#eliminar" prefHeight="65.0" prefWidth="142.0" styleClass="button1" stylesheets="@../resource/TonysKinal.css" text="Eliminar">
+               <font>
+                  <Font name="Bookman Old Style Bold" size="12.0" />
+               </font></Button>
+            <Button fx:id="btnReporte" alignment="BASELINE_RIGHT" layoutX="650.0" layoutY="22.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="142.0" styleClass="button1" stylesheets="@../resource/TonysKinal.css" text="Reporte">
+               <font>
+                  <Font name="Bookman Old Style Bold" size="12.0" />
+               </font></Button>
+            <ImageView fx:id="imgEditar" fitHeight="56.0" fitWidth="62.0" layoutX="470.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/editar.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imgReporte" fitHeight="50.0" fitWidth="56.0" layoutX="664.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/reporte.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imgEliminar" fitHeight="56.0" fitWidth="56.0" layoutX="256.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/eliminar.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ImageView disable="true" fitHeight="358.0" fitWidth="427.0" layoutX="158.0" layoutY="14.0" opacity="0.14" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/menu.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="tblServicios" layoutX="14.0" layoutY="132.0" onMouseClicked="#seleccionarElemento" prefHeight="258.0" prefWidth="974.0">
+        <columns>
+          <TableColumn fx:id="colCodigoServicio" prefWidth="88.0" text="Cod Servicio" />
+          <TableColumn fx:id="colTipoServicio" minWidth="0.0" prefWidth="114.0" text="Tipo de Servicio" />
+            <TableColumn fx:id="colHoraServicio" minWidth="0.0" prefWidth="145.0" text="Hora del Servicio" />
+            <TableColumn fx:id="colLugarServicio" minWidth="0.0" prefWidth="135.0" text="Lugar del Servicio" />
+            <TableColumn fx:id="colTelefonoContacto" minWidth="0.0" prefWidth="165.0" text="Teléfono de Contacto" />
+            <TableColumn fx:id="colFechaServicio" minWidth="0.0" prefWidth="169.0" text="Fecha de Servicio" />
+            <TableColumn fx:id="colCodigoEmpresa" minWidth="0.0" prefWidth="156.0" text="Grado cocinero" />
+        </columns>
+      </TableView>
+      <Label contentDisplay="CENTER" layoutX="377.0" layoutY="-9.0" prefHeight="35.0" prefWidth="162.0" text="Servicios" textOverrun="CENTER_WORD_ELLIPSIS">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="50.0" fitWidth="56.0" layoutX="934.0" layoutY="9.0" onMouseClicked="#menuPrincipal" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/Flecha3.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <GridPane fx:id="grpFecha" layoutX="45.0" layoutY="25.0" prefHeight="98.0" prefWidth="879.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="391.0" minWidth="10.0" prefWidth="226.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="551.0" minWidth="10.0" prefWidth="222.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="551.0" minWidth="10.0" prefWidth="222.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="551.0" minWidth="10.0" prefWidth="222.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label prefHeight="20.0" prefWidth="173.0" text="Teléfono de Contacto" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Bookman Old Style Italic" size="17.0" />
+               </font>
+            </Label>
+            <Label GridPane.rowIndex="2">
+               <font>
+                  <Font name="Bookman Old Style Italic" size="17.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtCodigoServicio" prefHeight="18.0" prefWidth="478.0" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets bottom="4.0" />
+               </GridPane.margin></TextField>
+            <Label text="Codigo Servicio">
+               <font>
+                  <Font name="Bookman Old Style Italic" size="17.0" />
+               </font>
+            </Label>
+            <Label prefHeight="30.0" prefWidth="185.0" text="Tipo de Servicio" GridPane.columnIndex="2">
+               <font>
+                  <Font name="Bookman Old Style Italic" size="17.0" />
+               </font>
+            </Label>
+            <Label text="Fecha de Servicio" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Bookman Old Style Italic" size="17.0" />
+               </font>
+            </Label>
+            <Label text="Codigo Empresa" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Bookman Old Style Italic" size="17.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="cmbCodigoEmpresa" prefHeight="25.0" prefWidth="217.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <Label text="Lugar del Servicio" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Bookman Old Style Italic" size="17.0" />
+               </font>
+            </Label>
+            <Label text="Hora del Servicio" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Bookman Old Style Italic" size="17.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtTipoServicio" prefHeight="18.0" prefWidth="478.0" GridPane.columnIndex="3" />
+            <TextField fx:id="txtHoraServicio" prefHeight="18.0" prefWidth="478.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txtLugarlServicio" prefHeight="18.0" prefWidth="478.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <TextField fx:id="txtTelefonoContacto" prefHeight="18.0" prefWidth="478.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>

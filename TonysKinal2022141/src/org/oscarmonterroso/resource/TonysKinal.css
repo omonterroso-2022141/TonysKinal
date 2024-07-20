@@ -1,0 +1,171 @@
+.menu-bar {
+    -fx-background-color: #043C94 ;
+    -fx-border-width: 2.0;
+
+}
+.menu-bar .label {
+    -fx-font-size: 14.0 pt;
+    -fx-font-family: "Bookman Old Style";
+    -fx-text-fill: white;
+    -fx-font-weight: bold; 
+    -fx-padding: 10.0px;
+
+}
+.menu-bar .menu-button:hover, .menu-bar .menu-button:focused, .menu-bar .menu-button:showing {
+    -fx-background: #1752db ;
+    -fx-text-fill: white;
+}
+
+.menu-item {
+    -fx-padding: 0.0em 0.0em 0.0em 0.0em;
+    -fx-text-fill: black;
+    -fx-background: #E99206 ;
+}
+.menu-item .label{
+    -fx-font-size: 14.0 pt;
+    -fx-text-fill: white;
+}
+.menu-item .label:hover{
+    -fx-font-size: 14.0 pt;
+    -fx-background: black ;
+    -fx-text-fill: white;
+}
+.context-menu {
+    -fx-skin: "com.sun.javafx.scene.control.skin.ContextMenuSkin";
+    -fx-background-color: #F7BC62;
+    -fx-border-width: 0.2px;
+    -fx-border-color: white;
+}
+
+.button1{
+    -fx-background-color: #fbf1d9;
+    -fx-background-radius: 45 45 45 45;
+}
+
+.button1:hover{
+    -fx-background-color:  #c9d2d9;
+    -fx-background-radius: 100 100 100 100;
+}
+
+.button1:pressed{
+    -fx-background-color:  #c9d2d9;
+    -fx-background-radius: 100 100 100 100;
+}
+
+
+.button2{
+    -fx-background-color: #E99206;
+    -fx-background-radius: 45 45 45 45;
+}
+
+.button2:hover{
+    -fx-background-color:  #c9d2d9;
+    -fx-background-radius: 100 100 100 100;
+}
+
+.button2:pressed{
+    -fx-background-color:  #c9d2d9;
+    -fx-background-radius: 100 100 100 100;
+}
+
+/*datepicker*/
+
+.datepicker-invalid
+{
+    -fx-border-color:  white;
+}
+
+.datepicker-valid
+{
+    -fx-border-color:  white;
+}
+
+/*encabezado*/
+.calendar-header
+{
+
+    -fx-background-color: #043c94;
+}
+/*parte inferior*/
+.calendar-footer
+{
+    -fx-background-color: #043c94;
+    -fx-padding: 0.2em;
+ 
+    
+}
+
+/*color de fondo numeros */ 
+.calendar-month-view, .calendar-year-view, .calendar-decades-view
+{
+    -fx-background-color: white;
+    -fx-padding: 0;
+}
+ 
+
+.calendar-cell-current-month, .calendar-year-button, .calendar-month-button {
+    -fx-background-color: #043c94;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0, 0, 0, 0;
+    -fx-cursor: hand;
+    -fx-padding: 0.7em;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+}
+
+/* sombra numeros 3d */
+.calendar-cell-current-month:hover, .calendar-year-button:hover, .calendar-month-button:hover {
+    -fx-background-color: -fx-cell-hover-color;
+}
+
+
+.calendar-cell-other-month {
+    -fx-background-color: white;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0, 0, 0, 0;
+    -fx-opacity: 0.7;
+    -fx-cursor: hand;
+    -fx-padding: 0.7em;
+    -fx-background-radius: 8;
+}
+
+/* sombra */
+.calendar-cell-other-month:hover {
+    -fx-background-color: #2F88FF;
+}
+
+/* sombre hoy */
+.calendar-cell-today {
+    -fx-background-color:   #043c94;
+}
+
+/* today y may */
+.calendar-navigation-button, .calendar-navigation-title, .calendar-today-button {
+    -fx-background-color: #043c94;
+    -fx-cursor: hand;
+    -fx-text-fill: white;
+}
+
+.calendar-navigation-title:disabled {
+    -fx-opacity: 1;
+}
+
+/*fecha para cambiar de mes*/
+.calendar-navigation-arrow {
+    -fx-padding: 4 3.5 4 3.5;
+    -fx-padding: 0.333333em 0.333333em 0.333333em 0.333333em; /* 2 3.5 2 3.5 */
+    -fx-shape: "M 100 100 L 300 100 L 200 300 z";
+    -fx-background-color: white;
+}
+/* dias de la semana*/
+.calendar-weekdays {
+    -fx-background-color: #2F88FF;
+    -fx-padding: 3px;
+}
+
+.calendar-week-number {
+    -fx-font-size: 0.8em;
+    -fx-padding: 4px;
+}
+
+

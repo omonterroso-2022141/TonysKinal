@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReportePresupuesto2" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="183d2eef-9ff1-4b18-95c1-a83cdf961733">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="codEmpresa" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\Informatica\\Desktop\\2022141\\TonysKinal2022141\\TonysKinal2022141\\src\\org\\oscarmonterroso\\report\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[Select * from Empresa E inner Join Servicios S on
+ E.codigoEmpresa = S.codigoEmpresa where E.codigoEmpresa = $P{codEmpresa}]]>
+	</queryString>
+	<field name="codigoEmpresa" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombreEmpresa" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="direccion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telefono" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="codigoServicio" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fechaServicio" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tipoServicio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="horaServicio" class="java.sql.Time">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="lugarServicio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telefonoContacto" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch">
+			<image>
+				<reportElement x="10" y="10" width="572" height="752" uuid="48720be6-e13a-4e07-bd90-6d47da83cd6d"/>
+				<imageExpression><![CDATA["ReporteEmpresa.png"]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="259" splitType="Stretch">
+			<textField>
+				<reportElement x="228" y="16" width="100" height="20" uuid="87336244-22d9-4425-aaa4-69054159d3bb"/>
+				<textFieldExpression><![CDATA[$F{nombreEmpresa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="377" y="16" width="100" height="20" uuid="29d2093c-40c7-4df2-9e4f-cbdee0f06f1b"/>
+				<textFieldExpression><![CDATA[$F{telefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="228" y="54" width="100" height="20" uuid="509e1326-fc7e-44eb-a0a5-d6d4ef42bc31"/>
+				<textFieldExpression><![CDATA[$F{direccion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="26" y="16" width="114" height="20" uuid="0b7c1520-cd37-4d6b-9504-60cbfc8a5f9a"/>
+				<text><![CDATA[Nombre de la Empresa]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="26" y="93" width="533" height="151" uuid="f1c222b2-d3bb-455f-a05c-2e4038545fe6"/>
+				<subreportParameter name="codEmpresa">
+					<subreportParameterExpression><![CDATA[$P{codEmpresa}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "SubReportePresupuesto.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="26" y="2" width="100" height="20" uuid="894d64b6-30d1-4adb-a465-15998ba29766"/>
+				<text><![CDATA[Fecha de servicio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="156" y="2" width="100" height="20" uuid="ffd39510-84c2-4dce-bf08-5b79cf262cc9"/>
+				<text><![CDATA[Hora de servicio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="302" y="2" width="100" height="20" uuid="67af36fd-0670-4aed-a9d9-5c0c34523353"/>
+				<text><![CDATA[Lugar de Servicio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="459" y="2" width="100" height="20" uuid="979e1643-0cf8-4ab5-925c-cc1964373896"/>
+				<text><![CDATA[Telefono de contacto]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="26" y="57" width="100" height="20" uuid="3c54968a-87de-4e98-8499-3e7531b07b53"/>
+				<textFieldExpression><![CDATA[$F{fechaServicio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="156" y="57" width="100" height="20" uuid="6f14be33-0f79-469f-b623-c3de680936e7"/>
+				<textFieldExpression><![CDATA[$F{horaServicio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="302" y="57" width="100" height="20" uuid="ed731489-4122-43cc-996e-07ce8f682d71"/>
+				<textFieldExpression><![CDATA[$F{lugarServicio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="436" y="57" width="100" height="20" uuid="1d563b35-ffc2-479a-a193-a240ee98254c"/>
+				<textFieldExpression><![CDATA[$F{telefonoContacto}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

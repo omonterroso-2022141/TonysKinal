@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="497.0" prefWidth="858.0" style="-fx-background-color: #c9d2d9;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.oscarmonterroso.controller.EmpresaController">
+   <children>
+      <ImageView fitHeight="507.0" fitWidth="878.0" layoutX="-16.0" layoutY="-102.0" opacity="0.52" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/marco.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="-2.0" layoutY="383.0" prefHeight="116.0" prefWidth="864.0" style="-fx-background-color: #043c94;">
+         <children>
+            <Button fx:id="btnNuevo" alignment="BASELINE_RIGHT" layoutX="175.0" layoutY="23.0" mnemonicParsing="false" onAction="#nuevo" prefHeight="65.0" prefWidth="124.0" styleClass="button1" stylesheets="@../resource/TonysKinal.css" text="Nuevo">
+               <font>
+                  <Font name="Bookman Old Style Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <ImageView fx:id="imgNuevo" fitHeight="56.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/nuevo.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="btnEditar" alignment="BASELINE_RIGHT" layoutX="453.0" layoutY="23.0" mnemonicParsing="false" onAction="#editar" prefHeight="65.0" prefWidth="124.0" styleClass="button1" stylesheets="@../resource/TonysKinal.css" text="Editar">
+               <font>
+                  <Font name="Bookman Old Style Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <ImageView fx:id="imgEditar" fitHeight="56.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/editar.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="btnEliminar" alignment="BASELINE_RIGHT" layoutX="314.0" layoutY="23.0" mnemonicParsing="false" onAction="#eliminar" prefHeight="65.0" prefWidth="124.0" styleClass="button1" stylesheets="@../resource/TonysKinal.css" text="Eliminar">
+               <font>
+                  <Font name="Bookman Old Style Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <ImageView fx:id="imgEliminar" fitHeight="56.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/eliminar.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="btnReporte" alignment="BASELINE_RIGHT" layoutX="595.0" layoutY="26.0" mnemonicParsing="false" onAction="#reporte" prefHeight="65.0" prefWidth="124.0" styleClass="button1" stylesheets="@../resource/TonysKinal.css" text="Reporte">
+               <font>
+                  <Font name="Bookman Old Style Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <ImageView fx:id="imgReporte" fitHeight="50.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/reporte.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <TextField layoutX="68.0" layoutY="33.0" onMouseClicked="#ventanaPresupuesto" prefHeight="25.0" prefWidth="94.0" styleClass="button1" stylesheets="@../resource/TonysKinal.css" text="Presupuesto">
+               <font>
+                  <Font name="Bookman Old Style Bold" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
+            </TextField>
+            <ImageView fitHeight="72.0" fitWidth="79.0" layoutX="14.0" layoutY="20.0" onMouseClicked="#ventanaPresupuesto" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/presupuesto.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
+            </ImageView>
+            <Button fx:id="btnReporte1" alignment="BASELINE_RIGHT" layoutX="732.0" layoutY="26.0" mnemonicParsing="false" onAction="#ventanaServicio" prefHeight="65.0" prefWidth="124.0" styleClass="button1" stylesheets="@../resource/TonysKinal.css" text="Servicio">
+               <font>
+                  <Font name="Bookman Old Style Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <ImageView fx:id="imgReporte1" fitHeight="50.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/serviciologo.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+      <ImageView disable="true" fitHeight="358.0" fitWidth="427.0" layoutX="158.0" layoutY="14.0" opacity="0.14" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/menu.png" />
+         </image>
+      </ImageView>
+      <GridPane layoutX="36.0" layoutY="34.0" prefHeight="116.0" prefWidth="737.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="190.0" minWidth="10.0" prefWidth="126.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="225.0" minWidth="10.0" prefWidth="176.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="182.0" minWidth="10.0" prefWidth="110.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="196.0" minWidth="10.0" prefWidth="191.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Codigo Empresa">
+               <font>
+                  <Font name="Bookman Old Style Italic" size="17.0" />
+               </font>
+            </Label>
+            <Label prefHeight="20.0" prefWidth="173.0" text="Nombre Empresa" GridPane.columnIndex="2">
+               <font>
+                  <Font name="Bookman Old Style" size="17.0" />
+               </font>
+            </Label>
+            <Label text="Dirección" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Bookman Old Style" size="17.0" />
+               </font>
+            </Label>
+            <Label text="Télefono" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Bookman Old Style" size="17.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtCodigoEmpresa" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets right="5.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="Bookman Old Style" size="13.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets bottom="5.0" />
+               </opaqueInsets>
+            </TextField>
+            <TextField fx:id="txtNombreEmpresa" prefHeight="25.0" prefWidth="197.0" GridPane.columnIndex="3">
+               <font>
+                  <Font name="Bookman Old Style" size="13.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets right="5.0" />
+               </GridPane.margin>
+               <opaqueInsets>
+                  <Insets bottom="5.0" right="5.0" top="5.0" />
+               </opaqueInsets>
+            </TextField>
+            <TextField fx:id="txtDireccionEmpresa" prefHeight="25.0" prefWidth="241.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Bookman Old Style" size="13.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets right="5.0" />
+               </GridPane.margin>
+               <opaqueInsets>
+                  <Insets right="5.0" top="5.0" />
+               </opaqueInsets>
+            </TextField>
+            <TextField fx:id="txtTelefonoEmpresa" prefHeight="30.0" prefWidth="168.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Bookman Old Style" size="13.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets right="5.0" />
+               </GridPane.margin>
+               <opaqueInsets>
+                  <Insets bottom="5.0" right="5.0" top="5.0" />
+               </opaqueInsets>
+            </TextField>
+         </children>
+      </GridPane>
+      <TableView fx:id="tblEmpresas" layoutX="36.0" layoutY="110.0" onMouseClicked="#seleccionarElemento" prefHeight="258.0" prefWidth="768.0">
+        <columns>
+          <TableColumn fx:id="colCodigoEmpresa" prefWidth="104.0" text="Cod Empresa" />
+          <TableColumn fx:id="colNombreEmpresa" prefWidth="188.0" text="Nombre Empresa" />
+            <TableColumn fx:id="colDireccionEmpresa" prefWidth="319.0" text="Dirección" />
+            <TableColumn fx:id="colTelefonoEmpresa" prefWidth="154.0" text="Télefono" />
+        </columns>
+      </TableView>
+      <Label contentDisplay="CENTER" layoutX="342.0" layoutY="-5.0" prefHeight="38.0" prefWidth="174.0" text="Empresas" textOverrun="CENTER_WORD_ELLIPSIS">
+         <font>
+            <Font name="Bookman Old Style Bold" size="32.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="50.0" fitWidth="56.0" layoutX="794.0" layoutY="8.0" onMouseClicked="#menuPrincipal" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/Flecha3.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+   </children>
+</AnchorPane>

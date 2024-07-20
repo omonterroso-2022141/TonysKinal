@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteEmpresas" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bebbdbfb-c3ec-40c1-8a57-1464dc74f503">
+	<property name="ireport.zoom" value="0.7513148009015793"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="fondo" class="java.io.InputStream"/>
+	<queryString>
+		<![CDATA[call sp_listarEmpresas;]]>
+	</queryString>
+	<field name="codigoEmpresa" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombreEmpresa" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="direccion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telefono" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band height="752" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="572" height="752" uuid="16deef1d-c98c-497e-8588-aeab5a756ac4"/>
+				<imageExpression><![CDATA[$P{fondo}]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<title>
+		<band height="140" splitType="Stretch">
+			<staticText>
+				<reportElement x="41" y="34" width="157" height="30" forecolor="#FFFFFF" uuid="27f89e8c-718d-4add-8000-0eebebfaf5e1"/>
+				<textElement>
+					<font fontName="Bookman Old Style" size="24"/>
+				</textElement>
+				<text><![CDATA[Tony's Kinal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="415" y="56" width="157" height="30" forecolor="#FFFFFF" uuid="095187cf-1755-47da-8d08-82e4c4a81313"/>
+				<textElement>
+					<font fontName="Bookman Old Style" size="24"/>
+				</textElement>
+				<text><![CDATA[Reporte]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="21" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="297" y="0" width="118" height="20" forecolor="#FFFFFF" backcolor="#003399" uuid="d97c1c70-76e2-4077-bdbd-723361fbe655"/>
+				<textElement>
+					<font fontName="Bookman Old Style"/>
+				</textElement>
+				<text><![CDATA[Direccíon]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="41" y="0" width="117" height="20" forecolor="#FFFFFF" backcolor="#003399" uuid="779dd564-19d9-4747-8495-8e564280a070"/>
+				<textElement>
+					<font fontName="Bookman Old Style"/>
+				</textElement>
+				<text><![CDATA[Codigo de Empresa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="158" y="0" width="139" height="20" forecolor="#FFFFFF" backcolor="#003399" uuid="993995d3-70f0-497c-8d71-43549cb8db5a"/>
+				<textElement>
+					<font fontName="Bookman Old Style"/>
+				</textElement>
+				<text><![CDATA[Nombre de la Empresa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="415" y="0" width="100" height="20" forecolor="#FFFFFF" backcolor="#003399" uuid="76350a82-8fbe-4528-9dc2-631e94e6583a"/>
+				<textElement>
+					<font fontName="Bookman Old Style"/>
+				</textElement>
+				<text><![CDATA[Teléfono]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="42" splitType="Stretch">
+			<textField>
+				<reportElement mode="Opaque" x="42" y="0" width="116" height="21" forecolor="#FFFFFF" backcolor="#FF9900" uuid="6007be2d-ccf8-4202-a0e8-479dcec8f68f"/>
+				<textElement>
+					<font fontName="Bookman Old Style"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codigoEmpresa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="158" y="0" width="139" height="21" forecolor="#FFFFFF" backcolor="#FF9900" uuid="da795e66-27ab-4fb4-8bc8-6c2752abf04b"/>
+				<textElement>
+					<font fontName="Bookman Old Style"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombreEmpresa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="297" y="0" width="118" height="21" forecolor="#FFFFFF" backcolor="#FF9900" uuid="1906cacc-144d-434b-b5f1-75e218fa0a45"/>
+				<textElement>
+					<font fontName="Bookman Old Style"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{direccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="415" y="0" width="100" height="21" forecolor="#FFFFFF" backcolor="#FF9900" uuid="2ab4db41-1dfd-4eca-b5f6-60c7e8d6ba5c"/>
+				<textElement>
+					<font fontName="Bookman Old Style"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{telefono}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="117" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

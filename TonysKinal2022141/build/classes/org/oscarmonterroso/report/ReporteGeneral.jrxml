@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteEmpresas" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bebbdbfb-c3ec-40c1-8a57-1464dc74f503">
+	<property name="ireport.zoom" value="0.7513148009015793"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="577"/>
+	<parameter name="codEmpresa" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fondo" class="java.io.InputStream"/>
+	<queryString>
+		<![CDATA[select
+                E.nombreEmpresa,
+                E.direccion,
+                E.telefono,
+                PR.fechaSolicitud,
+                PR.cantidadPresupuesto,
+                S.FechaServicio,
+                S.tipoServicio,
+                S.horaServicio,
+                SHE.fechaEvento,
+                SHE.horaEvento,
+                SHE.lugarEvento,
+                EM.nombresEmpleado,
+                EM.apellidosEmpleado,
+                TE.descripcion,
+                PL.cantidad,
+                PL.nombrePlato,
+                PL.descripcionPlato,
+                PL.precioPlato,
+                TP.descripcionTipo,
+                P.nombreProductos,
+                P.cantidadProducto
+                from Empresa E
+                inner join Presupuesto PR
+                on E.codigoEmpresa = PR.codigoEmpresa
+                inner join Servicios S
+                on S.codigoEmpresa = E.codigoEmpresa
+                inner join Servicios_has_Empleados SHE
+                on SHE.codigoServicio = S.codigoServicio
+                inner join Empleados EM
+                on EM.codigoEmpleado = SHE.codigoEmpleado
+                inner join TipoEmpleado TE
+                on TE.codigoTipoEmpleado = EM.codigoTipoEmpleado
+                inner join Servicios_has_Platos SHP
+                on SHP.codigoServicio = S.codigoServicio
+                inner join Platos PL
+                on PL.codigoPlato = SHP.codigoPlato
+                inner join TipoPlato TP
+                on TP.codigoTipoPlato = PL.codigoTipoPlato
+                inner join Productos_has_Platos PHP
+                on PHP.codigoPlato = PL.codigoPlato
+                inner join Productos P
+                on P.codigoProducto = PHP.codigoProducto
+                where E.codigoEmpresa = $P{codEmpresa};]]>
+	</queryString>
+	<field name="nombreEmpresa" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="direccion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telefono" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fechaSolicitud" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cantidadPresupuesto" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="FechaServicio" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tipoServicio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="horaServicio" class="java.sql.Time">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fechaEvento" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="horaEvento" class="java.sql.Time">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="lugarEvento" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombresEmpleado" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellidosEmpleado" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="descripcion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cantidad" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombrePlato" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="descripcionPlato" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="precioPlato" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="descripcionTipo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombreProductos" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cantidadProducto" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band height="752" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="572" height="752" uuid="16deef1d-c98c-497e-8588-aeab5a756ac4"/>
+				<imageExpression><![CDATA[$P{fondo}]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<title>
+		<band height="140" splitType="Stretch">
+			<staticText>
+				<reportElement x="41" y="34" width="157" height="30" forecolor="#FFFFFF" uuid="27f89e8c-718d-4add-8000-0eebebfaf5e1"/>
+				<textElement>
+					<font fontName="Bookman Old Style" size="24"/>
+				</textElement>
+				<text><![CDATA[Tony's Kinal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="415" y="56" width="157" height="30" forecolor="#FFFFFF" uuid="095187cf-1755-47da-8d08-82e4c4a81313"/>
+				<textElement>
+					<font fontName="Bookman Old Style" size="24"/>
+				</textElement>
+				<text><![CDATA[Reporte]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="415" y="86" width="146" height="30" forecolor="#FFFFFF" uuid="decc8b2f-a860-47d6-a965-95266d45ce3e"/>
+				<textElement>
+					<font fontName="Bookman Old Style" size="24"/>
+				</textElement>
+				<text><![CDATA[General]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="6" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="435" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="155" y="30" width="157" height="20" forecolor="#FFFFFF" backcolor="#003399" uuid="ad672c97-ccbb-4c54-8fa9-8b5e992acb7c"/>
+				<textElement>
+					<font fontName="Bookman Old Style"/>
+				</textElement>
+				<text><![CDATA[Dirección Empresa]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="315" y="30" width="100" height="20" forecolor="#FFFFFF" backcolor="#FF9900" uuid="74072478-9ef6-44d2-a3ec-82d1d6aac846"/>
+				<textElement markup="none">
+					<font fontName="Bookman Old Style" isUnderline="false" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{direccion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="155" y="50" width="157" height="20" forecolor="#FFFFFF" backcolor="#003399" uuid="6fab187c-af77-429f-a8c1-8f9e505d5f70"/>
+				<textElement>
+					<font fontName="Bookman Old Style"/>
+				</textElement>
+				<text><![CDATA[Teléfono Empresa]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="315" y="50" width="100" height="20" forecolor="#FFFFFF" backcolor="#FF9900" uuid="f3ca12da-a278-45d4-8768-e1562ef866a6"/>
+				<textElement markup="none">
+					<font fontName="Bookman Old Style" isUnderline="false" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{telefono}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="155" y="70" width="157" height="20" forecolor="#FFFFFF" backcolor="#003399" uuid="8687650d-110e-45a8-8195-a574aeea750a"/>
+				<textElement>
+					<font fontName="Bookman Old Style"/>
+				</textElement>
+				<text><![CDATA[Fecha de solicitud de presupuesto]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="315" y="70" width="100" height="20" forecolor="#FFFFFF" backcolor="#FF9900" uuid="01577aa9-19c3-47da-845c-a622fcfd9539"/>
+				<textElement markup="none">
+					<font fontName="Bookman Old Style" isUnderline="false" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fechaSolicitud}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="155" y="90" width="157" height="20" forecolor="#FFFFFF" backcolor="#003399" uuid="b0f014cc-970a-4cf3-86e7-e2de2bc820e8"/>
+				<textElement>
+					<font fontName="Bookman Old Style"/>
+				</textElement>
+				<text><![CDATA[Cantidad de Presupuesto]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="315" y="90" width="100" height="20" forecolor="#FFFFFF" backcolor="#FF9900" uuid="6d80f8c8-d44f-4185-9970-27786ebbbe2c"/>
+				<textElement markup="none">
+					<font fontName="Bookman Old Style" isUnderline="false" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cantidadPresupuesto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="155" y="110" width="157" height="20" forecolor="#FFFFFF" backcolor="#003399" uuid="15d10616-9457-4e09-8fa0-2adfa2aee476"/>
+				<textElement>
+					<font fontName="Bookman Old Style"/>
+				</textElement>
+				<text><![CDATA[Fecha de Servicio]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="315" y="110" width="100" height="20" forecolor="#FFFFFF" backcolor="#FF9900" uuid="35edaeda-30ea-4168-90d4-26fa660a9759"/>
+				<textElement markup="none">
+					<font fontName="Bookman Old Style" isUnderline="false" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FechaServicio}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="155" y="130" width="157" height="20" forecolor="#FFFFFF" backcolor="#003399" uuid="c5521d95-daf4-470f-8a49-28c4ec62dd2b"/>
+				<textElement>
+					<font fontName="Bookman Old Style"/>
+				</textElement>
+				<text><![CDATA[Tipo de Servicio]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="315" y="130" width="100" height="20" forecolor="#FFFFFF" backcolor="#FF9900" uuid="4a796485-1367-4f3a-a5f7-ffda02e91d5e"/>
+				<textElement markup="none">
+					<font fontName="Bookman Old Style" isUnderline="false" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipoServicio}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="155" y="150" width="157" height="20" forecolor="#FFFFFF" backcolor="#003399" uuid="39b0e944-7080-4b1b-9e5d-c86efe471a52"/>
+				<textElement>
+					<font fontName="Bookman Old Style"/>
+				</textElement>
+				<text><![CDATA[Hora de Servicio]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="315" y="150" width="100" height="20" forecolor="#FFFFFF" backcolor="#FF9900" uuid="afa89d2a-f6b5-4042-92c3-004627d06596"/>
+				<textElement markup="none">
+					<font fontName="Bookman Old Style" isUnderline="false" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{horaServicio}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="155" y="170" width="157" height="20" forecolor="#FFFFFF" backcolor="#003399" uuid="5463ec10-b824-4ba7-8172-43e6e935e933"/>
+				<textElement>
+					<font fontName="Bookman Old Style"/>
+				</textElement>
+				<text><![CDATA[Fecha de Evento]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="315" y="170" width="100" height="20" forecolor="#FFFFFF" backcolor="#FF9900" uuid="4f4ca97b-4038-49e9-b140-ba2862d6841d"/>
+				<textElement markup="none">
+					<font fontName="Bookman Old Style" isUnderline="false" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fechaEvento}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="155" y="190" width="157" height="20" forecolor="#FFFFFF" backcolor="#003399" uuid="6d40d5e0-95bd-4f18-bde4-d9abaed04ad9"/>
+				<textElement>
+					<font fontName="Bookman Old Style"/>
+				</textElement>
+				<text><![CDATA[Hora de Evento]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="315" y="190" width="100" height="20" forecolor="#FFFFFF" backcolor="#FF9900" uuid="db28ad7e-5396-4fef-b770-c98fd81adc6e"/>
+				<textElement markup="none">
+					<font fontName="Bookman Old Style" isUnderline="false" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{horaEvento}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="155" y="210" width="157" height="20" forecolor="#FFFFFF" backcolor="#003399" uuid="451d72ea-0c5e-4296-9def-2d88cc065e54"/>
+				<textElement>
+					<font fontName="Bookman Old Style"/>
+				</textElement>
+				<text><![CDATA[Lugar del Evento]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="315" y="210" width="100" height="20" forecolor="#FFFFFF" backcolor="#FF9900" uuid="284660bb-0d2d-4ce3-b602-b8b88aac080a"/>
+				<textElement markup="none">
+					<font fontName="Bookman Old Style" isUnderline="false" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lugarEvento}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="155" y="230" width="157" height="20" forecolor="#FFFFFF" backcolor="#003399" uuid="f02d70ce-cd83-4d3c-84c7-b3d48c1e1da0"/>
+				<textElement>
+					<font fontName="Bookman Old Style"/>
+				</textElement>
+				<text><![CDATA[Nombres de los Empleados]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="315" y="230" width="100" height="20" forecolor="#FFFFFF" backcolor="#FF9900" uuid="2377f6c4-ede2-4dfb-8e95-132a09587b8c"/>
+				<textElement markup="none">
+					<font fontName="Bookman Old Style" isUnderline="false" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombresEmpleado}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="155" y="250" width="157" height="20" forecolor="#FFFFFF" backcolor="#003399" uuid="eeb7c14a-ad85-4220-9e50-c2243246823b"/>
+				<textElement>
+					<font fontName="Bookman Old Style"/>
+				</textElement>
+				<text><![CDATA[Apellidos de los Empleados]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="315" y="250" width="100" height="20" forecolor="#FFFFFF" backcolor="#FF9900" uuid="32960cee-6bb7-4e17-9d7f-981b09340f10"/>
+				<textElement markup="none">
+					<font fontName="Bookman Old Style" isUnderline="false" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{apellidosEmpleado}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="155" y="270" width="157" height="20" forecolor="#FFFFFF" backcolor="#003399" uuid="2f3cc978-5695-47a0-8eda-1ac90a9eb9c0"/>
+				<textElement>
+					<font fontName="Bookman Old Style"/>
+				</textElement>
+				<text><![CDATA[Descripcion de Tipo Empleado]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="315" y="270" width="100" height="20" forecolor="#FFFFFF" backcolor="#FF9900" uuid="f9a41f63-c361-41b7-b0cc-2ce6c298d52b"/>
+				<textElement markup="none">
+					<font fontName="Bookman Old Style" isUnderline="false" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="155" y="290" width="157" height="20" forecolor="#FFFFFF" backcolor="#003399" uuid="a62f3df5-859e-402d-b19d-b161d44fdb54"/>
+				<textElement>
+					<font fontName="Bookman Old Style"/>
+				</textElement>
+				<text><![CDATA[Cantidad de Platos]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="315" y="290" width="100" height="20" forecolor="#FFFFFF" backcolor="#FF9900" uuid="b8917f35-e18c-449f-9197-3585050262b7"/>
+				<textElement markup="none">
+					<font fontName="Bookman Old Style" isUnderline="false" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="155" y="310" width="157" height="20" forecolor="#FFFFFF" backcolor="#003399" uuid="10122866-a996-42dd-b588-935e4c246866"/>
+				<textElement>
+					<font fontName="Bookman Old Style"/>
+				</textElement>
+				<text><![CDATA[Nombre del Plato]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="315" y="310" width="100" height="20" forecolor="#FFFFFF" backcolor="#FF9900" uuid="61262169-dc9b-4825-a4cd-1228dfd4d5dc"/>
+				<textElement markup="none">
+					<font fontName="Bookman Old Style" isUnderline="false" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombrePlato}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="155" y="330" width="157" height="20" forecolor="#FFFFFF" backcolor="#003399" uuid="b50d3acc-bd83-4302-b4c5-f59643a03fce"/>
+				<textElement>
+					<font fontName="Bookman Old Style"/>
+				</textElement>
+				<text><![CDATA[Descripcion del Plato]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="315" y="330" width="100" height="20" forecolor="#FFFFFF" backcolor="#FF9900" uuid="b353c8ed-9759-4112-a1c1-de5586767ee1"/>
+				<textElement markup="none">
+					<font fontName="Bookman Old Style" isUnderline="false" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descripcionPlato}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="155" y="350" width="157" height="20" forecolor="#FFFFFF" backcolor="#003399" uuid="46dfa282-c644-457b-928e-cca0c09b71f4"/>
+				<textElement>
+					<font fontName="Bookman Old Style"/>
+				</textElement>
+				<text><![CDATA[Precio del Plato]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="315" y="350" width="100" height="20" forecolor="#FFFFFF" backcolor="#FF9900" uuid="65376783-74fb-4197-af24-5e864e202938"/>
+				<textElement markup="none">
+					<font fontName="Bookman Old Style" isUnderline="false" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{precioPlato}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="155" y="370" width="157" height="20" forecolor="#FFFFFF" backcolor="#003399" uuid="b28b894a-789c-48d5-8687-454e19975cd1"/>
+				<textElement>
+					<font fontName="Bookman Old Style"/>
+				</textElement>
+				<text><![CDATA[Descripcion del Tipo de Plato]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="315" y="370" width="100" height="20" forecolor="#FFFFFF" backcolor="#FF9900" uuid="10c2f68b-0df5-4cdd-afe5-a3938d4b34ae"/>
+				<textElement markup="none">
+					<font fontName="Bookman Old Style" isUnderline="false" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descripcionTipo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="155" y="390" width="157" height="20" forecolor="#FFFFFF" backcolor="#003399" uuid="2ee8bd21-9483-4a17-b089-38379553a032"/>
+				<textElement>
+					<font fontName="Bookman Old Style"/>
+				</textElement>
+				<text><![CDATA[Nombre de los productos]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="315" y="390" width="100" height="20" forecolor="#FFFFFF" backcolor="#FF9900" uuid="0a4f4b6b-753b-4a10-85a6-9f2bf094abc1"/>
+				<textElement markup="none">
+					<font fontName="Bookman Old Style" isUnderline="false" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombreProductos}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="155" y="410" width="157" height="20" forecolor="#FFFFFF" backcolor="#003399" uuid="84a627fd-9ae6-4e84-9105-a4d50cd220ba"/>
+				<textElement>
+					<font fontName="Bookman Old Style"/>
+				</textElement>
+				<text><![CDATA[Cantidad de los Productos]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="315" y="410" width="100" height="20" forecolor="#FFFFFF" backcolor="#FF9900" uuid="9e9ddf16-a834-4040-a9e5-18a0f8906322"/>
+				<textElement markup="none">
+					<font fontName="Bookman Old Style" isUnderline="false" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cantidadProducto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="155" y="10" width="157" height="20" forecolor="#FFFFFF" backcolor="#003399" uuid="4620ca7f-f0ee-4b0b-b078-0346bfd9efba"/>
+				<textElement>
+					<font fontName="Bookman Old Style"/>
+				</textElement>
+				<text><![CDATA[Nombre Empresa]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="315" y="10" width="100" height="20" forecolor="#FFFFFF" backcolor="#FF9900" uuid="263cc20b-f234-4f1f-b3b4-ed7f9a6fd73c"/>
+				<textElement markup="none">
+					<font fontName="Bookman Old Style" isUnderline="false" isStrikeThrough="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombreEmpresa}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="42" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="117" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

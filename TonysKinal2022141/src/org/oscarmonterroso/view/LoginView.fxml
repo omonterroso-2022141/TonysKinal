@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="478.0" prefWidth="555.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.oscarmonterroso.controller.LoginController">
+   <children>
+      <Pane layoutX="-9.0" layoutY="-19.0" prefHeight="497.0" prefWidth="272.0" style="-fx-background-color: #F7BC62;">
+         <children>
+            <ImageView fitHeight="314.0" fitWidth="310.0" layoutX="-12.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/menu.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <TextField fx:id="txtUsuario" layoutX="360.0" layoutY="202.0" prefHeight="27.0" prefWidth="171.0" promptText="Username" style="-fx-background-color: transparent; -fx-border-color: black;" />
+      <TextField fx:id="txtPassword" layoutX="360.0" layoutY="272.0" prefHeight="27.0" prefWidth="171.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: black;" />
+      <ImageView fitHeight="174.0" fitWidth="194.0" layoutX="325.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/login.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="53.0" fitWidth="52.0" layoutX="299.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/login%20logo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="52.0" fitWidth="64.0" layoutX="299.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/password%20logo.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnLogin" layoutX="401.0" layoutY="338.0" mnemonicParsing="false" onAction="#sesion" prefHeight="25.0" prefWidth="89.0" styleClass="button2" stylesheets="@../resource/TonysKinal.css" text="Login" />
+      <Hyperlink fx:id="lblRegistro" layoutX="278.0" layoutY="433.0" onAction="#ventanaUsuario" prefHeight="23.0" prefWidth="97.0" text="Registrese aqui" />
+   </children>
+</AnchorPane>
